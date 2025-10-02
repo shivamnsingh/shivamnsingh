@@ -4,21 +4,55 @@
 
 ### 🎯 Junior Data Insights Specialist | Turning Data into Stories
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=3B82F6&center=true&vCenter=true&random=false&width=600&lines=Data+Analyst+%7C+ML+Enthusiast;Python+%7C+SQL+%7C+Power+BI;Turning+Data+into+Decisions;AI%2FML+Explorer+%F0%9F%9A%80;Always+Learning+%F0%9F%93%8A%E2%9C%A8" alt="Typing SVG" />
-
-
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=3B82F6&center=true&vCenter=true&random=false&width=600&lines=Data+Analyst+%7C+ML+Enthusiast;Python+%7C+SQL+%7C+C%2B%2B;Building+Insights+from+Data;Always+Learning+%F0%9F%9A%80" alt="Typing SVG" />
 
 ---
 
 ### 🚀 About Me
 
-🔭 Currently working on data analysis and visualization projects  
-🌱 Learning **MySQL, Python** to sharpen my skills  
-💡 Passionate about turning raw data into actionable insights  
-🎯 Exploring Machine Learning and AI applications  
-⚡ Fun fact: I love discovering patterns in data and creating beautiful visualizations!
+<table>
+<tr>
+<td width="50%">
 
-📧 **Reach me at:** [singhshivam11230@gmail.com](mailto:singhshivam11230@gmail.com)
+#### 💼 Professional Journey
+- 🎯 **Role:** Junior Data Insights Specialist
+- 📍 **Location:** India 🇮🇳
+- 🔥 **Focus:** Transforming complex data into compelling stories
+- 💡 **Mission:** Making data-driven decisions accessible to everyone
+
+#### 🌱 Currently Mastering
+```javascript
+const skills = {
+  databases: ['MySQL', 'PostgreSQL'],
+  programming: ['Python', 'C++'],
+  focus: 'Data Analysis & ML',
+  nextUp: 'Advanced Deep Learning'
+};
+```
+
+</td>
+<td width="50%">
+
+#### 🎨 What Drives Me
+```python
+passions = {
+    '📊': 'Data Visualization',
+    '🤖': 'Machine Learning',
+    '🧠': 'Predictive Analytics',
+    '📈': 'Statistical Modeling',
+    '🔍': 'Pattern Recognition'
+}
+
+for emoji, passion in passions.items():
+    print(f"{emoji} {passion}")
+```
+
+#### 📫 Let's Connect!
+[![Email](https://img.shields.io/badge/Email-singhshivam11230@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:singhshivam11230@gmail.com)
+
+</td>
+</tr>
+</table>
 
 ---
 
