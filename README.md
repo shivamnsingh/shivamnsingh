@@ -10,49 +10,34 @@
 
 ### 🚀 About Me
 
-<table>
-<tr>
-<td width="50%">
+<img align="right" alt="Coding" width="400" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif">
 
-#### 💼 Professional Journey
-- 🎯 **Role:** Junior Data Insights Specialist
-- 📍 **Location:** India 🇮🇳
-- 🔥 **Focus:** Transforming complex data into compelling stories
-- 💡 **Mission:** Making data-driven decisions accessible to everyone
+#### 👨‍💻 Who Am I?
 
-#### 🌱 Currently Mastering
-```javascript
-const skills = {
-  databases: ['MySQL', 'PostgreSQL'],
-  programming: ['Python', 'C++'],
-  focus: 'Data Analysis & ML',
-  nextUp: 'Advanced Deep Learning'
-};
-```
+I'm a **Data Insights Specialist** passionate about uncovering hidden patterns in data and building intelligent systems. Based in **India 🇮🇳**, I transform raw numbers into compelling narratives that drive business decisions.
 
-</td>
-<td width="50%">
+#### 🎯 What I Do
 
-#### 🎨 What Drives Me
-```python
-passions = {
-    '📊': 'Data Visualization',
-    '🤖': 'Machine Learning',
-    '🧠': 'Predictive Analytics',
-    '📈': 'Statistical Modeling',
-    '🔍': 'Pattern Recognition'
-}
+- 📊 Build interactive **dashboards** and **visualizations**
+- 🤖 Develop **Machine Learning** models for real-world problems
+- 🔍 Extract meaningful **insights** from complex datasets
+- 📈 Create **predictive analytics** solutions
 
-for emoji, passion in passions.items():
-    print(f"{emoji} {passion}")
-```
+#### 🌱 Currently Learning
 
-#### 📫 Let's Connect!
-[![Email](https://img.shields.io/badge/Email-singhshivam11230@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:singhshivam11230@gmail.com)
+![MySQL](https://img.shields.io/badge/MySQL-Learning-4479A1?style=flat&logo=mysql&logoColor=white)
+![Python](https://img.shields.io/badge/Python-Advancing-3776AB?style=flat&logo=python&logoColor=white)
+![C++](https://img.shields.io/badge/C++-Exploring-00599C?style=flat&logo=cplusplus&logoColor=white)
 
-</td>
-</tr>
-</table>
+#### 💬 Ask Me About
+
+`Data Analysis` • `Python` • `SQL` • `Machine Learning` • `Data Visualization` • `Statistical Modeling`
+
+#### 📫 Reach Out
+
+<a href="mailto:singhshivam11230@gmail.com">
+  <img src="https://img.shields.io/badge/Gmail-Let's_Talk-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+</a>
 
 ---
 
