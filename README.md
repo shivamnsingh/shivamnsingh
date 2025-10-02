@@ -10,23 +10,13 @@
 
 ### 🚀 About Me
 
-```python
-class DataInsightsSpecialist:
-    def __init__(self):
-        self.name = "Shivam Singh"
-        self.role = "Junior Data Insights Specialist"
-        self.location = "India 🇮🇳"
-        self.currently_learning = ["MySQL", "Python", "C++"]
-        self.interests = ["Data Analysis", "Machine Learning", "Visualization"]
-    
-    def say_hi(self):
-        print("Thanks for dropping by! Let's build something amazing together!")
+🔭 Currently working on data analysis and visualization projects  
+🌱 Learning **MySQL, Python, and C++** to sharpen my skills  
+💡 Passionate about turning raw data into actionable insights  
+🎯 Exploring Machine Learning and AI applications  
+⚡ Fun fact: I love discovering patterns in data and creating beautiful visualizations!
 
-me = DataInsightsSpecialist()
-me.say_hi()
-```
-
-📧 **Let's Connect:** [singhshivam11230@gmail.com](mailto:singhshivam11230@gmail.com)
+📧 **Reach me at:** [singhshivam11230@gmail.com](mailto:singhshivam11230@gmail.com)
 
 ---
 
