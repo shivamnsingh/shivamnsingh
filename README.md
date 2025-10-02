@@ -10,16 +10,22 @@
 
 ### 🚀 About Me
 
-<img align="right" alt="Data Analytics" width="400" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif">
+<img align="right" alt="Data Analytics" width="380" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif">
 
-**👨‍💻 Junior Data Insights Specialist** from India 🇮🇳  
+**👨‍💻 Junior Data Insights Specialist** from India 🇮🇳
+
 Passionate about transforming data into actionable insights through ML, visualization, and analytics.
 
-**🌱 Learning:** MySQL • Python • C++  
+**🌱 Learning:** MySQL • Python • C++
+
 **💡 Focus:** Data Analysis • Machine Learning • Visualization • Predictive Analytics
+
+<br>
 
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:singhshivam11230@gmail.com)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/shivamdgaf)
+
+<br clear="both"/>
 
 ---
 
