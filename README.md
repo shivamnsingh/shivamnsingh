@@ -64,31 +64,43 @@ Passionate about transforming data into actionable insights through ML, visualiz
 
 ### 📊 GitHub Analytics
 
-<p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=shivamnsingh&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=3B82F6&icon_color=3B82F6&text_color=FFFFFF&count_private=true&include_all_commits=true" />
-  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=shivamnsingh&theme=tokyonight&hide_border=true&background=0D1117&stroke=3B82F6&ring=3B82F6&fire=F59E0B&currStreakLabel=FFFFFF&sideLabels=FFFFFF&sideNums=FFFFFF" />
-</p>
+<div align="center">
+  
+#### 📈 Overall Statistics
 
 <p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivamnsingh&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=3B82F6&text_color=FFFFFF&langs_count=8" />
-  <img width="49%" src="https://github-contributor-stats.vercel.app/api?username=shivamnsingh&limit=5&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=3B82F6&text_color=FFFFFF&icon_color=3B82F6" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=shivamnsingh&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=F7931E&icon_color=F7931E&text_color=FFFFFF&count_private=true&include_all_commits=true&ring_color=F7931E" alt="GitHub Stats" />
+  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=shivamnsingh&theme=radical&hide_border=true&background=0D1117&stroke=F7931E&ring=F7931E&fire=F59E0B&currStreakLabel=FFFFFF&sideLabels=FFFFFF&sideNums=FFFFFF&dates=8B8B8B" alt="GitHub Streak" />
 </p>
 
----
-
-### 🏆 GitHub Trophies
+#### 🔥 Contribution Insights
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=shivamnsingh&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7&margin-w=15&margin-h=15" alt="Trophy" />
+  <img width="66%" src="https://github-readme-activity-graph.vercel.app/graph?username=shivamnsingh&custom_title=Shivam%20Singh's%20Contribution%20Graph&bg_color=0D1117&color=F7931E&line=F59E0B&point=FFFFFF&area=true&hide_border=true&area_color=F7931E" alt="Contribution Graph" />
 </p>
 
----
-
-### 📈 Contribution Activity
+#### 💻 Language Distribution & Achievements
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=shivamnsingh&custom_title=Shivam%20Singh's%20Contribution%20Graph&bg_color=0D1117&color=3B82F6&line=3B82F6&point=FFFFFF&area=true&hide_border=true" alt="Contribution Graph" />
+  <img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivamnsingh&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=F7931E&text_color=FFFFFF&langs_count=10&hide=html,css" alt="Top Languages" />
+  <img width="54%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shivamnsingh&theme=radical&hide_border=true" alt="Profile Summary" />
 </p>
+
+#### 🏆 GitHub Achievements
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=shivamnsingh&theme=radical&no-frame=true&no-bg=false&row=2&column=6&margin-w=15&margin-h=15&title=Stars,Followers,Commits,Repositories,Issues,PullRequest" alt="Trophies" />
+</p>
+
+#### ⚡ Recent Activity
+
+<!--START_SECTION:activity-->
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=shivamnsingh&theme=radical&hide_border=true&bg_color=0D1117&title_color=F7931E&text_color=FFFFFF&layout=compact" alt="Coding Time" />
+</p>
+<!--END_SECTION:activity-->
+
+</div>
 
 ---
 
