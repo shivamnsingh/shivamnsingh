@@ -10,31 +10,79 @@
 
 ### 🚀 About Me
 
-<img align="right" alt="Data Analytics" width="400" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif">
+<div align="center">
 
-#### 👨‍💻 Who Am I?
+<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="600">
 
-I'm a **Data Insights Specialist** passionate about uncovering hidden patterns in data and building intelligent systems. Based in **India 🇮🇳**, I transform raw numbers into compelling narratives that drive business decisions.
+</div>
 
-#### 🎯 What I Do
+<table align="center">
+<tr>
+<td width="50%" valign="top">
 
-Building interactive **dashboards** and **visualizations** that tell stories. Developing **Machine Learning** models to solve real-world problems. Extracting meaningful **insights** from complex datasets and creating **predictive analytics** solutions that make an impact.
+<h3 align="center">🎯 My Data Journey</h3>
 
-#### 🌱 Currently Learning
+<div align="center">
 
-![MySQL](https://img.shields.io/badge/MySQL-Learning-4479A1?style=flat&logo=mysql&logoColor=white)
-![Python](https://img.shields.io/badge/Python-Advancing-3776AB?style=flat&logo=python&logoColor=white)
-![C++](https://img.shields.io/badge/C++-Exploring-00599C?style=flat&logo=cplusplus&logoColor=white)
+```yaml
+name: Shivam Singh
+role: Junior Data Insights Specialist
+location: India 🇮🇳
+motto: "Turning Data into Decisions"
 
-#### 💬 Ask Me About
+expertise:
+  - Data Analysis & Visualization
+  - Machine Learning & AI
+  - Predictive Analytics
+  - Statistical Modeling
 
-`Data Analysis` • `Python` • `SQL` • `Machine Learning` • `Data Visualization` • `Statistical Modeling`
+currently_exploring:
+  - MySQL Database Design
+  - Advanced Python Techniques
+  - C++ for Performance
+  - Deep Learning Architectures
+```
 
-#### 📫 Reach Out
+</div>
 
-<a href="mailto:singhshivam11230@gmail.com">
-  <img src="https://img.shields.io/badge/Gmail-Let's_Talk-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-</a>
+</td>
+<td width="50%" valign="top">
+
+<h3 align="center">⚡ Quick Stats</h3>
+
+<div align="center">
+
+**💼 Experience Level**  
+`████████░░ 80%` Data Analysis  
+`███████░░░ 70%` Python & SQL  
+`██████░░░░ 60%` Machine Learning  
+`█████░░░░░ 50%` Deep Learning  
+
+**🎨 My Superpowers**
+```diff
++ 📊 Creating stunning visualizations
++ 🤖 Building ML models that actually work
++ 🔍 Finding insights others miss
++ 📈 Making complex data simple
++ ⚡ Fast learner & problem solver
+```
+
+</div>
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+### 💬 Let's Connect & Build Something Amazing!
+
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:singhshivam11230@gmail.com)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/shivamdgaf)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](#)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](#)
+
+</div>
 
 ---
 
