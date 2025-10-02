@@ -65,13 +65,13 @@ Passionate about transforming data into actionable insights through ML, visualiz
 ### 📊 GitHub Analytics
 
 <p align="center">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api?username=shivamnsingh&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=3B82F6&icon_color=3B82F6&text_color=FFFFFF" />
-  <img width="48%" src="https://github-readme-streak-stats.herokuapp.com/?user=shivamnsingh&theme=tokyonight&hide_border=true&background=0D1117&stroke=3B82F6&ring=3B82F6&fire=F59E0B&currStreakLabel=FFFFFF" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=shivamnsingh&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=3B82F6&icon_color=3B82F6&text_color=FFFFFF&count_private=true&include_all_commits=true" />
+  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=shivamnsingh&theme=tokyonight&hide_border=true&background=0D1117&stroke=3B82F6&ring=3B82F6&fire=F59E0B&currStreakLabel=FFFFFF&sideLabels=FFFFFF&sideNums=FFFFFF" />
 </p>
 
 <p align="center">
-  <img width="48%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivamnsingh&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=3B82F6&text_color=FFFFFF" />
-  <img width="48%" src="https://github-readme-activity-graph.vercel.app/graph?username=shivamnsingh&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=3B82F6&line=3B82F6&point=FFFFFF" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shivamnsingh&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=3B82F6&text_color=FFFFFF&langs_count=8" />
+  <img width="49%" src="https://github-contributor-stats.vercel.app/api?username=shivamnsingh&limit=5&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=3B82F6&text_color=FFFFFF&icon_color=3B82F6" />
 </p>
 
 ---
@@ -79,14 +79,16 @@ Passionate about transforming data into actionable insights through ML, visualiz
 ### 🏆 GitHub Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=shivamnsingh&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7" alt="Trophy" />
+  <img src="https://github-profile-trophy.vercel.app/?username=shivamnsingh&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7&margin-w=15&margin-h=15" alt="Trophy" />
 </p>
 
 ---
 
-### 📈 Contribution Graph
+### 📈 Contribution Activity
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=shivamnsingh&custom_title=Shivam's%20Contribution%20Graph&bg_color=0D1117&color=3B82F6&line=3B82F6&point=FFFFFF&area=true&hide_border=true" />
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=shivamnsingh&custom_title=Shivam%20Singh's%20Contribution%20Graph&bg_color=0D1117&color=3B82F6&line=3B82F6&point=FFFFFF&area=true&hide_border=true" alt="Contribution Graph" />
+</p>
 
 ---
 
