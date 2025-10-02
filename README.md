@@ -10,19 +10,9 @@
 
 ### 🚀 About Me
 
-<div align="center">
+<img align="right" alt="Data Analytics" width="400" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif">
 
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="600">
-
-</div>
-
-<table align="center">
-<tr>
-<td width="50%" valign="top">
-
-<h3 align="center">🎯 My Data Journey</h3>
-
-<div align="center">
+#### 🎯 My Data Journey
 
 ```yaml
 name: Shivam Singh
@@ -35,54 +25,24 @@ expertise:
   - Machine Learning & AI
   - Predictive Analytics
   - Statistical Modeling
-
-currently_exploring:
-  - MySQL Database Design
-  - Advanced Python Techniques
-  - C++ for Performance
-  - Deep Learning Architectures
 ```
 
-</div>
+#### ⚡ What I'm Up To
 
-</td>
-<td width="50%" valign="top">
+**Currently Learning:** MySQL • Advanced Python • C++ • Deep Learning
 
-<h3 align="center">⚡ Quick Stats</h3>
-
-<div align="center">
-
-**💼 Experience Level**  
-`████████░░ 80%` Data Analysis  
-`███████░░░ 70%` Python & SQL  
-`██████░░░░ 60%` Machine Learning  
-`█████░░░░░ 50%` Deep Learning  
-
-**🎨 My Superpowers**
+**My Superpowers:**
 ```diff
 + 📊 Creating stunning visualizations
-+ 🤖 Building ML models that actually work
++ 🤖 Building ML models that work
 + 🔍 Finding insights others miss
 + 📈 Making complex data simple
-+ ⚡ Fast learner & problem solver
 ```
 
-</div>
-
-</td>
-</tr>
-</table>
-
-<div align="center">
-
-### 💬 Let's Connect & Build Something Amazing!
+#### 📫 Let's Connect!
 
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:singhshivam11230@gmail.com)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/shivamdgaf)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](#)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](#)
-
-</div>
 
 ---
 
