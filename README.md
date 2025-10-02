@@ -4,6 +4,26 @@
 - 🌱 I’m currently learning **MySQL,Python,C++**
 
 - 📫 How to reach me **singhshivam11230@gmail.com**
+<p>
+  <img alt="Python" src="https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+  <img alt="R" src="https://img.shields.io/badge/-R-276DC3?style=flat-square&logo=r&logoColor=white" />
+  <img alt="SQL" src="https://img.shields.io/badge/-SQL-336791?style=flat-square&logo=postgresql&logoColor=white" />
+  <img alt="Excel" src="https://img.shields.io/badge/-Excel-217346?style=flat-square&logo=microsoft-excel&logoColor=white" />
+  <img alt="Pandas" src="https://img.shields.io/badge/-Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
+  <img alt="NumPy" src="https://img.shields.io/badge/-NumPy-013243?style=flat-square&logo=numpy&logoColor=white" />
+  <img alt="Matplotlib" src="https://img.shields.io/badge/-Matplotlib-11557c?style=flat-square&logo=plotly&logoColor=white" />
+  <img alt="Seaborn" src="https://img.shields.io/badge/-Seaborn-76b900?style=flat-square&logo=python&logoColor=white" />
+  <img alt="Scikit-learn" src="https://img.shields.io/badge/-ScikitLearn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white" />
+  <img alt="TensorFlow" src="https://img.shields.io/badge/-TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" />
+  <img alt="PyTorch" src="https://img.shields.io/badge/-PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" />
+  <img alt="Power BI" src="https://img.shields.io/badge/-Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=white" />
+  <img alt="Tableau" src="https://img.shields.io/badge/-Tableau-E97627?style=flat-square&logo=tableau&logoColor=white" />
+  <img alt="Git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
+  <img alt="GitHub" src="https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white" />
+  <img alt="Docker" src="https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+  <img alt="AWS" src="https://img.shields.io/badge/-AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white" />
+</p>
+
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
