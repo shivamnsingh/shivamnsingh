@@ -4,7 +4,8 @@
 
 ### 🎯 Junior Data Insights Specialist | Turning Data into Stories
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=3B82F6&center=true&vCenter=true&random=false&width=600&lines=Data+Analyst+%7C+ML+Enthusiast;Python+%7C+SQL;Building+Insights+from+Data;Always+Learning+%F0%9F%9A%80" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=3B82F6&center=true&vCenter=true&random=false&width=650&lines=Data+Analyst+%7C+AI%2FML+Enthusiast;Python+%7C+R+%7C+SQL;Turning+Data+into+Insights+%F0%9F%93%8A;Exploring+Deep+Learning+%26+GenAI+%F0%9F%A4%96;Always+Learning+%F0%9F%9A%80" alt="Typing SVG" />
+
 
 ---
 
