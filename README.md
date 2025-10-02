@@ -13,7 +13,7 @@
 ### 🚀 About Me
 
 🔭 Currently working on data analysis and visualization projects  
-🌱 Learning **MySQL, Python, and C++** to sharpen my skills  
+🌱 Learning **MySQL, Python** to sharpen my skills  
 💡 Passionate about turning raw data into actionable insights  
 🎯 Exploring Machine Learning and AI applications  
 ⚡ Fun fact: I love discovering patterns in data and creating beautiful visualizations!
