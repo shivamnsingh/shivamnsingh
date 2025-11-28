@@ -16,9 +16,9 @@
 
 Passionate about transforming data into actionable insights through ML, visualization, and analytics.
 
-**🌱 Learning:** MySQL • Python
+**🌱 Learning:** MySQL •Python
 
-**💡 Focus:** Data Analysis • Machine Learning • Visualization • Predictive Analytics
+**💡 Focus:** Data Analysis •Machine Learning •Visualization •Predictive Analytics
 
 <br>
 
