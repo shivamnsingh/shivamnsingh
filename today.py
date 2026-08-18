@@ -10,7 +10,6 @@ import re
 # Configuration
 HEADERS = {'authorization': 'token ' + os.environ['ACCESS_TOKEN']}
 USER_NAME = os.environ['USER_NAME']
-KAGGLE_USERNAME = os.environ.get('KAGGLE_USERNAME', '')
 KAGGLE_API_TOKEN = os.environ.get('KAGGLE_API_TOKEN', '')
 QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0,
                'loc_query': 0}
@@ -38,13 +37,15 @@ def simple_request(func_name, query, variables):
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 
-def fetch_kaggle_notebooks(kaggle_username, kaggle_token):
+def fetch_kaggle_notebooks(kaggle_token):
     """
-    Counts the user's public Kaggle notebooks (kernels) via Kaggle's
-    official REST API, authenticated with a Bearer token.
+    Counts the user's own public Kaggle notebooks (kernels) via Kaggle's
+    official REST API, authenticated with a Bearer token. Uses mine=true
+    so it counts notebooks owned by the token holder, rather than
+    filtering by username (which Kaggle's API does not reliably honor).
     """
     url = "https://www.kaggle.com/api/v1/kernels/list"
-    params = {"user": kaggle_username, "page_size": 100}
+    params = {"mine": "true", "page_size": 100}
     headers = {"Authorization": f"Bearer {kaggle_token}"}
     try:
         response = requests.get(url, params=params, headers=headers, timeout=15)
@@ -378,7 +379,7 @@ if __name__ == '__main__':
     formatter('LOC (cached)', loc_time)
 
     commit_data, _ = perf_counter(graph_commits)
-    kaggle_data, _ = perf_counter(fetch_kaggle_notebooks, KAGGLE_USERNAME, KAGGLE_API_TOKEN)
+    kaggle_data, _ = perf_counter(fetch_kaggle_notebooks, KAGGLE_API_TOKEN)
     repo_data, _ = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
     contrib_data, _ = perf_counter(graph_repos_stars, 'repos', ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'])
     follower_data, _ = perf_counter(follower_getter, USER_NAME)
