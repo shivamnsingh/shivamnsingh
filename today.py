@@ -10,6 +10,8 @@ import re
 # Configuration
 HEADERS = {'authorization': 'token ' + os.environ['ACCESS_TOKEN']}
 USER_NAME = os.environ['USER_NAME']
+KAGGLE_USERNAME = os.environ.get('KAGGLE_USERNAME', '')
+KAGGLE_API_TOKEN = os.environ.get('KAGGLE_API_TOKEN', '')
 QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0,
                'loc_query': 0}
 EXCLUDED_REPOS = {'is-a-dev/register', 'shivamnsingh/register', 'is-a-good-dev/register', 'shivamnsingh/register-is-a-good-dev'}
@@ -36,28 +38,20 @@ def simple_request(func_name, query, variables):
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 
-def fetch_streak(username):
+def fetch_kaggle_notebooks(kaggle_username, kaggle_token):
     """
-    Fetches GitHub streak data.
-    The API returns an SVG; we parse the 'Current Streak' value from the XML.
+    Counts the user's public Kaggle notebooks (kernels) via Kaggle's
+    official REST API, authenticated with a Bearer token.
     """
-    url = f"https://github-readme-streak-stats-vijaypur.vercel.app/?user={username}"
-    for delay in [1, 2, 4]:
-        try:
-            response = requests.get(url, timeout=15)
-            if response.status_code == 200:
-                svg_text = response.text
-                # The "Current Streak" big number is inside a <text> element
-                # that has the 'currstreak' animation style applied to it.
-                # We use a non-greedy match to find the first occurrence of the number
-                # inside a text tag specifically associated with that animation.
-                match = re.search(r"style=['\"]animation:\s*currstreak[^>]*>[\s\n]*([0-9,]+)[\s\n]*</text>", svg_text,
-                                  re.DOTALL)
-
-                if match:
-                    return match.group(1).strip()
-        except Exception:
-            time.sleep(delay)
+    url = "https://www.kaggle.com/api/v1/kernels/list"
+    params = {"user": kaggle_username, "page_size": 100}
+    headers = {"Authorization": f"Bearer {kaggle_token}"}
+    try:
+        response = requests.get(url, params=params, headers=headers, timeout=15)
+        if response.status_code == 200:
+            return len(response.json())
+    except Exception:
+        pass
     return "N/A"
 
 
@@ -294,7 +288,7 @@ def stars_counter(data):
     return total_stars
 
 
-def svg_overwrite(filename, age_data, commit_data, streak_data, repo_data, contrib_data, follower_data,
+def svg_overwrite(filename, age_data, commit_data, kaggle_data, repo_data, contrib_data, follower_data,
                   loc_data):
     tree = etree.parse(filename)
     root = tree.getroot()
@@ -307,7 +301,9 @@ def svg_overwrite(filename, age_data, commit_data, streak_data, repo_data, contr
     # third-party committers-rank badge.
     justify_format(root, 'rank_data', follower_data, 0)
     justify_format(root, 'loc_data', loc_data[2], 0)
-    justify_format(root, 'streak_data', streak_data, 0)
+    # The "streak_data" card now displays Kaggle notebook count instead of
+    # a scraped GitHub streak badge.
+    justify_format(root, 'streak_data', kaggle_data, 0)
 
     # Custom Prefixes
     # Add 10 to accommodate for the 2 commits done in the excluded repos which are too large to parse
@@ -382,7 +378,7 @@ if __name__ == '__main__':
     formatter('LOC (cached)', loc_time)
 
     commit_data, _ = perf_counter(graph_commits)
-    streak_data, _ = perf_counter(fetch_streak, USER_NAME)
+    kaggle_data, _ = perf_counter(fetch_kaggle_notebooks, KAGGLE_USERNAME, KAGGLE_API_TOKEN)
     repo_data, _ = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
     contrib_data, _ = perf_counter(graph_repos_stars, 'repos', ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'])
     follower_data, _ = perf_counter(follower_getter, USER_NAME)
@@ -394,10 +390,10 @@ if __name__ == '__main__':
         '{:,}'.format(total_loc[2])
     ]
 
-    svg_overwrite('dark_mode.svg', age_data, commit_data, streak_data, repo_data, contrib_data,
+    svg_overwrite('dark_mode.svg', age_data, commit_data, kaggle_data, repo_data, contrib_data,
                   follower_data,
                   loc_formatted)
-    svg_overwrite('light_mode.svg', age_data, commit_data, streak_data, repo_data, contrib_data,
+    svg_overwrite('light_mode.svg', age_data, commit_data, kaggle_data, repo_data, contrib_data,
                   follower_data,
                   loc_formatted)
 

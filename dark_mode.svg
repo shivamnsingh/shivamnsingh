@@ -44,9 +44,9 @@
 
     <!-- Streak Card (New) -->
     <rect x="494" y="24" width="220" height="180" rx="24" fill="#2D332B" stroke="#444C3E" stroke-width="1"/>
-    <text x="518" y="55" class="d-label" fill="#BFCBAD">Current Streak</text>
+    <text x="518" y="55" class="d-label" fill="#BFCBAD">Kaggle Notebooks</text>
     <text x="518" y="140" id="streak_data" class="d-streak-value">N/A</text>
-    <text x="518" y="170" class="d-body-text" fill="#BFCBAD" font-size="12">Consecutive Days</text>
+    <text x="518" y="170" class="d-body-text" fill="#BFCBAD" font-size="12">Public Notebooks</text>
 
     <!-- Rank Card -->
     <rect x="734" y="24" width="227" height="180" rx="24" fill="#4F378B"/>
