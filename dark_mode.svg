@@ -84,13 +84,13 @@
     <rect x="618" y="410" width="319" height="12" rx="6" fill="#49454F"/>
     <rect x="618" y="410" width="260" height="12" rx="6" fill="#D0BCFF"/>
 
-    <text x="618" y="450" id="loc_add" class="d-mono d-add-color" font-size="11">++ 4,803,618</text>
-    <text x="943" y="450" text-anchor="end" id="loc_del" class="d-mono d-del-color" font-size="11">-- 68,914</text>
+    <text x="618" y="450" id="loc_add" class="d-mono d-add-color" font-size="11">++ 4,803,625</text>
+    <text x="943" y="450" text-anchor="end" id="loc_del" class="d-mono d-del-color" font-size="11">-- 68,921</text>
 
     <!-- Footer -->
     <rect x="24" y="504" width="937" height="52" rx="16" fill="#49454F"/>
     <text x="48" y="535" class="d-body-text" font-weight="500" font-size="12">singhshivam11230@gmail.com | linkedin.com/in/shivamnsingh</text>
-    <text x="940" y="535" text-anchor="end" id="commit_data" class="d-mono" font-size="12" fill-opacity="0.6">Commits: 233</text>
+    <text x="940" y="535" text-anchor="end" id="commit_data" class="d-mono" font-size="12" fill-opacity="0.6">Commits: 234</text>
 
     <!-- Hidden / script-required elements -->
     <text id="age_data_dots" display="none"> . </text>
