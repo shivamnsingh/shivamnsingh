@@ -36,29 +36,115 @@ def simple_request(func_name, query, variables):
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 
-def fetch_streak(username):
-    """
-    Fetches GitHub streak data.
-    The API returns an SVG; we parse the 'Current Streak' value from the XML.
-    """
-    url = f"https://github-readme-streak-stats-vijaypur.vercel.app/?user={username}"
-    for delay in [1, 2, 4]:
-        try:
-            response = requests.get(url, timeout=15)
-            if response.status_code == 200:
-                svg_text = response.text
-                # The "Current Streak" big number is inside a <text> element
-                # that has the 'currstreak' animation style applied to it.
-                # We use a non-greedy match to find the first occurrence of the number
-                # inside a text tag specifically associated with that animation.
-                match = re.search(r"style=['\"]animation:\s*currstreak[^>]*>[\s\n]*([0-9,]+)[\s\n]*</text>", svg_text,
-                                  re.DOTALL)
+SPARK = ' ▁▂▃▄▅▆▇█'
 
-                if match:
-                    return match.group(1).strip()
-        except Exception:
-            time.sleep(delay)
-    return "N/A"
+
+def uptime_text(created_at):
+    """Account age, e.g. '2 years, 26 days' (zero parts are dropped)."""
+    created = datetime.datetime.strptime(created_at, '%Y-%m-%dT%H:%M:%SZ')
+    diff = relativedelta.relativedelta(datetime.datetime.utcnow(), created)
+    parts = []
+    for value, unit in ((diff.years, 'year'), (diff.months, 'month'), (diff.days, 'day')):
+        if value:
+            parts.append('{} {}{}'.format(value, unit, format_plural(value)))
+    return ', '.join(parts) if parts else '0 days'
+
+
+def contribution_calendar():
+    """Last-12-months contribution total and the calendar as a list of weeks (each a list of days)."""
+    query_count('graph_commits')
+    query = '''
+    query($login: String!) {
+        user(login: $login) {
+            contributionsCollection {
+                contributionCalendar {
+                    totalContributions
+                    weeks { contributionDays { date contributionCount } }
+                }
+            }
+        }
+    }'''
+    request = simple_request('contribution_calendar', query, {'login': USER_NAME})
+    cal = request.json()['data']['user']['contributionsCollection']['contributionCalendar']
+    return int(cal['totalContributions']), [w['contributionDays'] for w in cal['weeks']]
+
+
+def streak_stats(weeks):
+    """(current streak, best streak within the calendar window), computed from real contribution days."""
+    days = sorted((d for w in weeks for d in w), key=lambda d: d['date'])
+    counts = [d['contributionCount'] for d in days]
+    best = run = 0
+    for c in counts:
+        run = run + 1 if c > 0 else 0
+        best = max(best, run)
+    current, i = 0, len(counts) - 1
+    if i >= 0 and counts[i] == 0:  # today may simply not have a contribution yet
+        i -= 1
+    while i >= 0 and counts[i] > 0:
+        current += 1
+        i -= 1
+    return current, best
+
+
+def sparkline(weeks):
+    totals = [sum(d['contributionCount'] for d in w) for w in weeks]
+    peak = max(totals) if totals and max(totals) > 0 else 1
+    return ''.join(SPARK[0] if t == 0 else SPARK[max(1, -(-t * 8 // peak))] for t in totals)
+
+
+def pull_requests():
+    query_count('graph_repos_stars')
+    query = 'query($login: String!){ user(login: $login) { pullRequests { totalCount } } }'
+    request = simple_request('pull_requests', query, {'login': USER_NAME})
+    return int(request.json()['data']['user']['pullRequests']['totalCount'])
+
+
+def repo_stats():
+    """Stars received and language bytes across owned, non-fork repos."""
+    query = '''
+    query($login: String!, $cursor: String) {
+        user(login: $login) {
+            repositories(first: 100, after: $cursor, ownerAffiliations: [OWNER], isFork: false) {
+                nodes {
+                    nameWithOwner
+                    stargazerCount
+                    languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+                        edges { size node { name } }
+                    }
+                }
+                pageInfo { endCursor hasNextPage }
+            }
+        }
+    }'''
+    stars, langs, cursor = 0, {}, None
+    while True:
+        query_count('graph_repos_stars')
+        request = simple_request('repo_stats', query, {'login': USER_NAME, 'cursor': cursor})
+        repos = request.json()['data']['user']['repositories']
+        for node in repos['nodes']:
+            if not node or node['nameWithOwner'] in EXCLUDED_REPOS:
+                continue
+            stars += node['stargazerCount']
+            for edge in node['languages']['edges']:
+                langs[edge['node']['name']] = langs.get(edge['node']['name'], 0) + edge['size']
+        if not repos['pageInfo']['hasNextPage']:
+            return stars, langs
+        cursor = repos['pageInfo']['endCursor']
+
+
+def languages_text(langs, max_len=41):
+    total = sum(langs.values()) or 1
+    out = ''
+    for name, size in sorted(langs.items(), key=lambda kv: kv[1], reverse=True):
+        pct = round(size * 100 / total)
+        if pct < 1:
+            break
+        item = '{} {}%'.format(name, pct)
+        candidate = out + (', ' if out else '') + item
+        if len(candidate) > max_len:
+            break
+        out = candidate
+    return out or 'n/a'
 
 
 def graph_commits():
@@ -261,11 +347,13 @@ def cache_builder(edges, comment_size, force_cache, loc_add=0, loc_del=0):
         f.writelines(cache_comment)
         f.writelines(data)
 
+    my_commits = 0
     for line in data:
         loc = line.split()
+        my_commits += int(loc[2])
         loc_add += int(loc[3])
         loc_del += int(loc[4])
-    return [loc_add, loc_del, loc_add - loc_del, True]
+    return [loc_add, loc_del, loc_add - loc_del, True, my_commits]
 
 
 def flush_cache(edges, filename, comment_size):
@@ -294,40 +382,74 @@ def stars_counter(data):
     return total_stars
 
 
-def svg_overwrite(filename, age_data, commit_data, streak_data, repo_data, contrib_data, follower_data,
-                  loc_data):
+# id -> (length of the ". Label: " prefix, row width in characters). Must match the card template.
+ROW_SPECS = {
+    'uptime_data': (len('. Uptime: '), 58),
+    'repos_data': (len('. Repos: '), 27),
+    'stars_data': (len('. Stars: '), 27),
+    'commits_data': (len('. Commits: '), 27),
+    'prs_data': (len('. PRs: '), 27),
+    'contribs_data': (len('. Contributions: '), 27),
+    'followers_data': (len('. Followers: '), 27),
+    'streak_data': (len('. Streak: '), 58),
+    'langs_data': (len('. Languages: '), 58),
+}
+
+
+def svg_overwrite(filename, values):
     tree = etree.parse(filename)
     root = tree.getroot()
-
-    # Standard formats
-    justify_format(root, 'age_data', age_data, 0)
-    justify_format(root, 'repo_data', repo_data, 0)
-    justify_format(root, 'contrib_data', contrib_data, 0)
-    # The "rank_data" card now displays live follower count instead of a
-    # third-party committers-rank badge.
-    justify_format(root, 'rank_data', follower_data, 0)
-    justify_format(root, 'loc_data', loc_data[2], 0)
-    justify_format(root, 'streak_data', streak_data, 0)
-
-    # Custom Prefixes
-    # Add 10 to accommodate for the 2 commits done in the excluded repos which are too large to parse
-    justify_format(root, 'commit_data', f"Commits: {commit_data + 2}", 0)
-    justify_format(root, 'loc_add', f"++ {loc_data[0]}", 0)
-    justify_format(root, 'loc_del', f"-- {loc_data[1]}", 0)
-
+    for element_id, (lead, width) in ROW_SPECS.items():
+        value = values[element_id]
+        text = '{:,}'.format(value) if isinstance(value, int) else str(value)
+        text = text[:max(1, width - lead - 3)]
+        find_and_replace(root, element_id, ' ' + text)
+        find_and_replace(root, element_id + '_dots', '.' * max(2, width - lead - len(text) - 1))
+    find_and_replace(root, 'spark_data', values['spark_data'])
     tree.write(filename, encoding='utf-8', xml_declaration=True)
 
 
-def justify_format(root, element_id, new_text, total_width):
-    if isinstance(new_text, int):
-        new_text = f"{'{:,}'.format(new_text)}"
-    new_text = str(new_text)
-    find_and_replace(root, element_id, new_text)
+def _mix(c1, c2, t):
+    a = [int(c1[i:i + 2], 16) for i in (1, 3, 5)]
+    b = [int(c2[i:i + 2], 16) for i in (1, 3, 5)]
+    return '#%02x%02x%02x' % tuple(round(a[i] + (b[i] - a[i]) * t) for i in range(3))
 
-    if total_width > 0:
-        dots_needed = total_width - len(new_text)
-        dot_string = ' ' + ('.' * (dots_needed - 2)) + ' ' if dots_needed > 2 else ''
-        find_and_replace(root, f"{element_id}_dots", dot_string)
+
+def render_gif(svg_file, gif_file, base, glow, frames=30):
+    """Animated copy of the card: a thin scan line sweeps over the ASCII portrait, then it pauses and loops."""
+    import io
+    import shutil
+    import subprocess
+    from PIL import Image
+    if shutil.which('rsvg-convert') is None:
+        print('rsvg-convert not found, skipping', gif_file)
+        return False
+    ns = '{http://www.w3.org/2000/svg}'
+
+    def frame(scan):
+        root = etree.parse(svg_file).getroot()
+        if scan is not None:
+            for t in root.iter(ns + 'text'):
+                if t.get('class') == 'art':
+                    d = abs(float(t.get('y')) - scan)
+                    t.set('fill', _mix(base, glow, (1 - d / 30) ** 1.5) if d < 30 else base)
+            etree.SubElement(root, ns + 'rect', x='24', y='%.1f' % (scan - 4), width='330', height='1.2',
+                             fill=glow, opacity='0.55')
+        png = subprocess.run(['rsvg-convert', '-w', '966', '-h', '603', '-f', 'png'],
+                             input=etree.tostring(root), stdout=subprocess.PIPE, check=True).stdout
+        return Image.open(io.BytesIO(png)).convert('RGB')
+
+    scans = [24 + i * (590 - 24) / (frames - 1) for i in range(frames)]
+    imgs = [frame(y) for y in scans]
+    still = frame(None)
+    sample = Image.new('RGB', (966, 603 * 4))
+    for k, idx in enumerate([0, frames // 3, 2 * frames // 3, frames - 1]):
+        sample.paste(imgs[idx], (0, 603 * k))
+    palette = sample.quantize(colors=64, method=0, dither=0)  # 0 = median cut, no dithering
+    seq = [im.quantize(palette=palette, dither=0) for im in imgs + [still]]
+    seq[0].save(gif_file, save_all=True, append_images=seq[1:], duration=[55] * frames + [2200], loop=0,
+                optimize=True, disposal=1)
+    return True
 
 
 def find_and_replace(root, element_id, new_text):
@@ -375,30 +497,36 @@ if __name__ == '__main__':
     OWNER_ID, acc_date = user_getter(USER_NAME)
     formatter('account data', 0)
 
-    age_data, age_time = perf_counter(daily_readme, datetime.datetime(2006, 7, 14))
-    formatter('age calculation', age_time)
+    age_data, age_time = perf_counter(uptime_text, acc_date)
+    formatter('account age', age_time)
 
     total_loc, loc_time = perf_counter(loc_query, ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'], 7)
-    formatter('LOC (cached)', loc_time)
+    formatter('commits (cached)', loc_time)
 
-    commit_data, _ = perf_counter(graph_commits)
-    streak_data, _ = perf_counter(fetch_streak, USER_NAME)
+    (contrib_total, weeks), _ = perf_counter(contribution_calendar)
+    streak_now, streak_best = streak_stats(weeks)
     repo_data, _ = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
-    contrib_data, _ = perf_counter(graph_repos_stars, 'repos', ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'])
+    (star_data, lang_data), _ = perf_counter(repo_stats)
+    pr_data, _ = perf_counter(pull_requests)
     follower_data, _ = perf_counter(follower_getter, USER_NAME)
 
-    # Prepare comma formatted strings for SVG overwrite
-    loc_formatted = [
-        '{:,}'.format(total_loc[0]),
-        '{:,}'.format(total_loc[1]),
-        '{:,}'.format(total_loc[2])
-    ]
-
-    svg_overwrite('dark_mode.svg', age_data, commit_data, streak_data, repo_data, contrib_data,
-                  follower_data,
-                  loc_formatted)
-    svg_overwrite('light_mode.svg', age_data, commit_data, streak_data, repo_data, contrib_data,
-                  follower_data,
-                  loc_formatted)
+    values = {
+        'uptime_data': age_data,
+        'repos_data': repo_data,
+        'stars_data': star_data,
+        # +2: commits in excluded repos that are too large to parse
+        'commits_data': total_loc[4] + 2,
+        'prs_data': pr_data,
+        'contribs_data': contrib_total,
+        'followers_data': follower_data,
+        'streak_data': '{} day{} (best {})'.format(streak_now, format_plural(streak_now), streak_best),
+        'langs_data': languages_text(lang_data),
+        'spark_data': sparkline(weeks),
+    }
+    for theme in ('dark', 'light'):
+        svg_overwrite(theme + '_mode.svg', values)
+    # Scan-line colors: base portrait color, highlight color
+    render_gif('dark_mode.svg', 'dark_mode.gif', '#c9d1d9', '#7ee787')
+    render_gif('light_mode.svg', 'light_mode.gif', '#57606a', '#1a7f37')
 
     print('Total GitHub GraphQL API calls:', sum(QUERY_COUNT.values()))
